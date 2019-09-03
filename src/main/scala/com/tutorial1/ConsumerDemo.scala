@@ -32,7 +32,7 @@ object ConsumerDemo extends App {
   while (true) {
     val records: ConsumerRecords[String, String] = consumer.poll(Duration.ofMillis(100))
 
-    records. /*iterator().*/ asScala.foreach(r => {
+    records.asScala.foreach(r => {
       logger.info("Key: " + r.key + ", Value: " + r.value)
       logger.info("Partion: " + r.partition + ", Offset: " + r.offset)
     })
